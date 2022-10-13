@@ -4,7 +4,7 @@ const url = 'https://api.github.com';
 const config = {
   headers: {
     accept: 'application/vnd.github.v3+json',
-    Authorization: 'token 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',
+    Authorization: 'token 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',
   },
 };
 

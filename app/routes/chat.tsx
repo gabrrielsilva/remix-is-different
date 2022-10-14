@@ -41,9 +41,9 @@ export default function () {
   const transition = useTransition();
   const isSubmitting = transition.state === 'submitting';
   const formRef = useRef<HTMLFormElement>(null);
-  const data = useActionData<ActionData>();
+  const actionData = useActionData<ActionData>();
 
-  console.log(data);
+  console.log(actionData);
   
   useEffect(() => {
     if (!isSubmitting) {
@@ -63,6 +63,7 @@ export default function () {
       <Form ref={formRef} method='post' style={{ display: 'flex' }}>
         <textarea autoFocus name='message' disabled={isSubmitting} ></textarea>
         <button type='submit' disabled={isSubmitting}>Enviar</button>
+        {actionData?.error && <p>{actionData?.error}</p>}
       </Form>
       {isSubmitting && <p>Enviando mensagem...</p>}
     </>
